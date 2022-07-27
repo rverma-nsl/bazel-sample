@@ -6,6 +6,6 @@ java_library(
         "//module95",
         "//module96",
         "//module97",
-        "//module99"
+        "//module99",
     ],
 )

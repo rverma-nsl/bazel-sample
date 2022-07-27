@@ -4,9 +4,9 @@ java_library(
     visibility = ["//visibility:public"],
     deps = [
         "//module89",
-        "//module99",
         "//module91",
+        "//module93",
         "//module95",
-        "//module93"
+        "//module99",
     ],
 )

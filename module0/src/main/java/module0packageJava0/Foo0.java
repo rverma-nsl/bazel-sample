@@ -1,5 +1,8 @@
 package module0packageJava0;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Foo0 {
   public void foo0() {
     new module18packageJava0.Foo0().foo2();
@@ -70,4 +73,14 @@ public class Foo0 {
   public void foo2() {
     foo1();
   }
+
+//  public static void main (String[] args) {
+//    Set<Short> s = new HashSet<>();
+//    for (short i = 0; i < 100; i++) {
+//      s.add(i);
+//      s.remove(i - 1);
+//    }
+//    System.out.println(s.size());
+//  }
 }
+
