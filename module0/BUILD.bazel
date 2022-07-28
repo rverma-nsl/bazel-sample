@@ -1,8 +1,33 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
+load("@io_grpc_grpc_java//:java_grpc_library.bzl", "java_grpc_library")
+
+proto_library(
+    name = "helloworld_proto",
+    srcs = ["src/main/proto/helloworld.proto"],
+)
+
+java_proto_library(
+    name = "helloworld_java_proto",
+    deps = [":helloworld_proto"],
+)
+
+java_grpc_library(
+    name = "helloworld_java_grpc",
+    srcs = [":helloworld_proto"],
+    deps = [":helloworld_java_proto"],
+)
+
 java_library(
     name = "module0",
-    srcs = glob(["src/main/java/**/*.java"]),
+    testonly = 1,
+    srcs = [
+        "src/main/java/module0packageJava0/Foo0.java",
+        "src/main/java/module0packageJava0/HostnameGreeter.java",
+    ],
     visibility = ["//visibility:public"],
     deps = [
+        ":helloworld_java_grpc",
+        ":helloworld_java_proto",
         "//module1",
         "//module12",
         "//module14",
@@ -62,5 +87,25 @@ java_library(
         "//module94",
         "//module96",
         "//module97",
+        "@io_grpc_grpc_java//stub",
     ],
 )
+
+#java_binary(
+#    name = "hostname-server",
+#    testonly = 1,
+#    srcs = [
+#        "src/main/java/io/grpc/examples/hostname/HostnameServer.java",
+#    ],
+#    main_class = "io.grpc.examples.hostname.HostnameServer",
+#    runtime_deps = [
+#        "@io_grpc_grpc_java//netty",
+#    ],
+#    deps = [
+#        ":module0",
+#        "@io_grpc_grpc_java//api",
+#        "@io_grpc_grpc_java//services:health",
+#        "@io_grpc_grpc_java//services:reflection",
+#        "@io_grpc_grpc_proto//:health_java_proto",
+#    ],
+#)

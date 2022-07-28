@@ -4,5 +4,4 @@ bazel-**
 .gradle
 .idea
 .ijwb
-.vscode
 **.iml
