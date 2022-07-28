@@ -42,14 +42,32 @@ load("@io_grpc_grpc_java//:repositories.bzl", "IO_GRPC_GRPC_JAVA_ARTIFACTS", "IO
 
 grpc_java_repositories()
 
+rules_java_version = "6e03a930850249d4c982d236fbed6091bf283c4e"
+
+# rules_java defines rules for generating Java code from Protocol Buffers.
+http_archive(
+    name = "rules_java",
+    #    sha256 = "9a72d1bade803e1913d1e0a6f8beb35786fa3e8e460c98a56d2054200b9f6c5e",
+    strip_prefix = "rules_java-%s" % rules_java_version,
+    urls = [
+        "https://github.com/bazelbuild/rules_java/archive/%s.tar.gz" % rules_java_version,
+    ],
+)
+
 #-----------------------------------------------------------------------------
 # proto
 #-----------------------------------------------------------------------------
+rules_proto_version = "fcad4680fee127dbd8344e6a961a28eef5820ef4"
+
+# rules_proto defines abstract rules for building Protocol Buffers.
 http_archive(
-    name = "com_google_protobuf",
-    sha256 = "710b9e52cb3e65df1c54de381b3f01a184255ab9d98527d8b1c96d6e4be9a4b4",
-    strip_prefix = "protobuf-3.21.4",
-    urls = ["https://github.com/google/protobuf/archive/v3.21.4.zip"],
+    name = "rules_proto",
+    sha256 = "36476f17a78a4c495b9a9e70bd92d182e6e78db476d90c74bac1f5f19f0d6d04",
+    strip_prefix = "rules_proto-%s" % rules_proto_version,
+    urls = [
+        "https://mirror.bazel.build/github.com/bazelbuild/rules_proto/archive/%s.tar.gz" % rules_proto_version,
+        "https://github.com/bazelbuild/rules_proto/archive/%s.tar.gz" % rules_proto_version,
+    ],
 )
 
 load("@com_google_protobuf//:protobuf_deps.bzl", "PROTOBUF_MAVEN_ARTIFACTS", "protobuf_deps")
@@ -93,7 +111,7 @@ load("//:repositories.bzl", "PLATFORM_JAVA_ARTIFACTS", "PLATFORM_JAVA_OVERRIDE")
 load("@bazel_skylib//lib:dicts.bzl", "dicts")
 
 maven_install(
-    artifacts = IO_GRPC_GRPC_JAVA_ARTIFACTS + PROTOBUF_MAVEN_ARTIFACTS + PLATFORM_JAVA_ARTIFACTS,
+    artifacts = IO_GRPC_GRPC_JAVA_ARTIFACTS + PLATFORM_JAVA_ARTIFACTS,
     generate_compat_repositories = True,
     override_targets = dicts.add(IO_GRPC_GRPC_JAVA_OVERRIDE_TARGETS, PLATFORM_JAVA_OVERRIDE),
     repositories = [

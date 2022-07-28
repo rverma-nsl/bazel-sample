@@ -91,21 +91,21 @@ java_library(
     ],
 )
 
-#java_binary(
-#    name = "hostname-server",
-#    testonly = 1,
-#    srcs = [
-#        "src/main/java/io/grpc/examples/hostname/HostnameServer.java",
-#    ],
-#    main_class = "io.grpc.examples.hostname.HostnameServer",
-#    runtime_deps = [
-#        "@io_grpc_grpc_java//netty",
-#    ],
-#    deps = [
-#        ":module0",
-#        "@io_grpc_grpc_java//api",
-#        "@io_grpc_grpc_java//services:health",
-#        "@io_grpc_grpc_java//services:reflection",
+java_binary(
+    name = "hostname-server",
+    testonly = 1,
+    srcs = [
+        "src/main/java/module0packageJava0/HostnameServer.java",
+    ],
+    main_class = "module0packageJava0.HostnameServer",
+    runtime_deps = [
+        "@io_grpc_grpc_java//netty",
+    ],
+    deps = [
+        ":module0",
+        "@io_grpc_grpc_java//api",
+        "@io_grpc_grpc_java//services:health",
+        "@io_grpc_grpc_java//services:reflection",
 #        "@io_grpc_grpc_proto//:health_java_proto",
-#    ],
-#)
+    ],
+)
