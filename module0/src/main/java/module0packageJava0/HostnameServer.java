@@ -2,9 +2,8 @@ package module0packageJava0;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
-import io.grpc.health.v1.HealthCheckResponse.ServingStatus;
+import io.grpc.protobuf.services.HealthStatusManager;
 import io.grpc.protobuf.services.ProtoReflectionService;
-import io.grpc.services.HealthStatusManager;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -15,7 +14,7 @@ import java.util.concurrent.TimeUnit;
  */
 public final class HostnameServer {
   public static void main(String[] args) throws IOException, InterruptedException {
-    int port = 50051;
+    int port = 50052;
     String hostname = null;
     if (args.length >= 1) {
       try {
@@ -59,11 +58,6 @@ public final class HostnameServer {
         }
       }
     });
-    // This would normally be tied to the service's dependencies. For example, if HostnameGreeter
-    // used a Channel to contact a required service, then when 'channel.getState() ==
-    // TRANSIENT_FAILURE' we'd want to set NOT_SERVING. But HostnameGreeter has no dependencies, so
-    // hard-coding SERVING is appropriate.
-    health.setStatus("", ServingStatus.SERVING);
     server.awaitTermination();
   }
 }

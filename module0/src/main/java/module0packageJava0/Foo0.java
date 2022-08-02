@@ -24,8 +24,7 @@ public class Foo0 {
     new module94packageJava0.Foo0().foo2();
     new module12packageJava0.Foo0().foo2();
     new module15packageJava0.Foo0().foo2();
-    new module20packageJava0.Foo0().foo2();
-    new module91packageJava0.Foo0().foo2();
+    new module90packageJava0.Foo0().foo2();
     new module76packageJava0.Foo0().foo2();
     new module88packageJava0.Foo0().foo2();
     new module80packageJava0.Foo0().foo2();
@@ -35,7 +34,7 @@ public class Foo0 {
     new module87packageJava0.Foo0().foo2();
     new module84packageJava0.Foo0().foo2();
     new module48packageJava0.Foo0().foo2();
-    new module90packageJava0.Foo0().foo2();
+    new module91packageJava0.Foo0().foo2();
     new module40packageJava0.Foo0().foo2();
     new module24packageJava0.Foo0().foo2();
     new module49packageJava0.Foo0().foo2();

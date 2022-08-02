@@ -1,8 +1,5 @@
 package module0packageJava0;
 
-import module0packageJava0.GreeterGrpc;
-import module0packageJava0.HelloReply;
-import module0packageJava0.HelloRequest;
 import io.grpc.stub.StreamObserver;
 import java.io.IOException;
 import java.net.InetAddress;
@@ -10,7 +7,9 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/** Greeter implementation which replies identifying itself with its hostname. */
+/**
+ * Greeter implementation which replies identifying itself with its hostname.
+ */
 public final class HostnameGreeter extends GreeterGrpc.GreeterImplBase {
   private static final Logger logger = Logger.getLogger(HostnameGreeter.class.getName());
 

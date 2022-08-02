@@ -8,5 +8,4 @@ PLATFORM_JAVA_ARTIFACTS = [
 ]
 
 PLATFORM_JAVA_OVERRIDE = {
-    "com.google.code.gson:gson": "@maven//2.9.0",
 }

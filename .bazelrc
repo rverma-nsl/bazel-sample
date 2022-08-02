@@ -1,2 +1,11 @@
-build --java_language_version=17
+# --experimental_enable_bzlmod
+build --logging=5
+
+# Pin java versions
 build --java_runtime_version=remotejdk_17
+build --tool_java_runtime_version=remotejdk_17
+build --tool_java_language_version=17
+
+# Make sure we get something helpful when tests fail
+test --verbose_failures
+test --test_output=errors
