@@ -91,9 +91,9 @@ io_grpc_grpc_tag = "1.48.0"
 
 http_archive(
     name = "io_grpc_grpc_java",
-    sha256 = "f6ecacf924da06aa1c97b4339a74e8d4e345af083b5d197d0758c90881205108",
-    strip_prefix = "grpc-java-1.48.0",
-    urls = ["https://github.com/grpc/grpc-java/archive/v1.48.0.tar.gz"],
+    sha256 = "88b12b2b4e0beb849eddde98d5373f2f932513229dbf9ec86cc8e4912fc75e79",
+    strip_prefix = "grpc-java-1.48.1",
+    urls = ["https://github.com/grpc/grpc-java/archive/v1.48.1.tar.gz"],
 )
 
 load("@io_grpc_grpc_java//:repositories.bzl", "IO_GRPC_GRPC_JAVA_ARTIFACTS", "IO_GRPC_GRPC_JAVA_OVERRIDE_TARGETS", "grpc_java_repositories")
