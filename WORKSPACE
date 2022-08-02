@@ -57,15 +57,11 @@ rules_java_toolchains()
 #-----------------------------------------------------------------------------
 # Jvm External to use maven packages
 #-----------------------------------------------------------------------------
-RULES_JVM_EXTERNAL_TAG = "4.2"
-
-RULES_JVM_EXTERNAL_SHA = "cd1a77b7b02e8e008439ca76fd34f5b07aecb8c752961f9640dea15e9e5ba1ca"
-
 http_archive(
     name = "rules_jvm_external",
-    sha256 = RULES_JVM_EXTERNAL_SHA,
-    strip_prefix = "rules_jvm_external-%s" % RULES_JVM_EXTERNAL_TAG,
-    url = "https://github.com/bazelbuild/rules_jvm_external/archive/%s.zip" % RULES_JVM_EXTERNAL_TAG,
+    sha256 = "cd1a77b7b02e8e008439ca76fd34f5b07aecb8c752961f9640dea15e9e5ba1ca",
+    strip_prefix = "rules_jvm_external-4.2",
+    url = "https://github.com/bazelbuild/rules_jvm_external/archive/4.2.zip",
 )
 
 load("@rules_jvm_external//:defs.bzl", "maven_install")
@@ -96,8 +92,8 @@ io_grpc_grpc_tag = "1.48.0"
 http_archive(
     name = "io_grpc_grpc_java",
     sha256 = "f6ecacf924da06aa1c97b4339a74e8d4e345af083b5d197d0758c90881205108",
-    strip_prefix = "grpc-java-%s" % io_grpc_grpc_tag,
-    urls = ["https://github.com/grpc/grpc-java/archive/v%s.tar.gz" % io_grpc_grpc_tag],
+    strip_prefix = "grpc-java-1.48.0",
+    urls = ["https://github.com/grpc/grpc-java/archive/v1.48.0.tar.gz"],
 )
 
 load("@io_grpc_grpc_java//:repositories.bzl", "IO_GRPC_GRPC_JAVA_ARTIFACTS", "IO_GRPC_GRPC_JAVA_OVERRIDE_TARGETS", "grpc_java_repositories")
@@ -134,6 +130,6 @@ http_archive(
 
 register_toolchains("@build_stack_rules_proto//toolchain:prebuilt")
 
-load("@build_stack_rules_proto//:go_deps.bzl", "gazelle_protobuf_extension_go_deps")
+load("@build_stack_rules_proto//:go_deps.bzl", "go_deps")
 
-gazelle_protobuf_extension_go_deps()
+go_deps()
