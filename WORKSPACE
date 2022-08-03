@@ -87,8 +87,6 @@ rules_proto_toolchains()
 #-----------------------------------------------------------------------------
 # Grpc Toolchain
 #-----------------------------------------------------------------------------
-io_grpc_grpc_tag = "1.48.0"
-
 http_archive(
     name = "io_grpc_grpc_java",
     sha256 = "88b12b2b4e0beb849eddde98d5373f2f932513229dbf9ec86cc8e4912fc75e79",
@@ -133,3 +131,27 @@ register_toolchains("@build_stack_rules_proto//toolchain:prebuilt")
 load("@build_stack_rules_proto//:go_deps.bzl", "go_deps")
 
 go_deps()
+
+#-----------------------------------------------------------------------------
+# JVM Contrib Rules
+#-----------------------------------------------------------------------------
+http_archive(
+    name = "contrib_rules_jvm",
+    sha256 = "f0c375c8d0b5ba86f27c963392d54d313c3057cb9d05fb933d5b6c93d2bbfcbc",
+    strip_prefix = "rules_jvm-08486246c2f2a079570ce6b0a8f11b34e409b6ba",
+    url = "https://github.com/bazel-contrib/rules_jvm/archive/08486246c2f2a079570ce6b0a8f11b34e409b6ba.zip",
+)
+
+load("@contrib_rules_jvm//:repositories.bzl", "contrib_rules_jvm_deps", "contrib_rules_jvm_gazelle_deps")
+
+contrib_rules_jvm_deps()
+
+contrib_rules_jvm_gazelle_deps()
+
+load("@contrib_rules_jvm//:setup.bzl", "contrib_rules_jvm_setup")
+
+contrib_rules_jvm_setup()
+
+load("@contrib_rules_jvm//:gazelle_setup.bzl", "contrib_rules_jvm_gazelle_setup")
+
+contrib_rules_jvm_gazelle_setup()

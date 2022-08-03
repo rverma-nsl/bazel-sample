@@ -3,12 +3,47 @@
 #-----------------------------------------------------------------------------
 load("@bazel_gazelle//:def.bzl", "DEFAULT_LANGUAGES", "gazelle", "gazelle_binary")
 
-gazelle_binary(
-    name = "gazelle_bin",
-    languages = DEFAULT_LANGUAGES,
-)
+# gazelle:java_maven_install_file frozen_deps_install.json
+# gazelle:prefix github.com/bazel-contrib/rules_jvm
 
+# gazelle:resolve go github.com/bazelbuild/buildtools/build @com_github_bazelbuild_buildtools//build:go_default_library
+# gazelle:resolve java com.beust.jcommander @contrib_rules_jvm_deps//:com_beust_jcommander
+# gazelle:resolve java com.beust.jcommander.converters @contrib_rules_jvm_deps//:com_beust_jcommander
+# gazelle:resolve java com.gazelle.java.javaparser.v0 //java/gazelle/private/javaparser/proto/gazelle/java/javaparser/v0:gazelle_java_build_v0_java_library
+# gazelle:resolve java com.github.javaparser @contrib_rules_jvm_deps//:com_github_javaparser_javaparser_core
+# gazelle:resolve java com.github.javaparser.ast @contrib_rules_jvm_deps//:com_github_javaparser_javaparser_core
+# gazelle:resolve java com.github.javaparser.ast.body @contrib_rules_jvm_deps//:com_github_javaparser_javaparser_core
+# gazelle:resolve java com.github.javaparser.ast.type @contrib_rules_jvm_deps//:com_github_javaparser_javaparser_core
+# gazelle:resolve java com.github.javaparser.resolution @contrib_rules_jvm_deps//:com_github_javaparser_javaparser_core
+# gazelle:resolve java com.github.javaparser.resolution.declarations @contrib_rules_jvm_deps//:com_github_javaparser_javaparser_core
+# gazelle:resolve java com.github.javaparser.resolution.types @contrib_rules_jvm_deps//:com_github_javaparser_javaparser_core
+# gazelle:resolve java com.github.javaparser.symbolsolver @contrib_rules_jvm_deps//:com_github_javaparser_javaparser_symbol_solver_core
+# gazelle:resolve java com.github.javaparser.symbolsolver.model.resolution @contrib_rules_jvm_deps//:com_github_javaparser_javaparser_symbol_solver_core
+# gazelle:resolve java com.github.javaparser.symbolsolver.resolution.typesolvers @contrib_rules_jvm_deps//:com_github_javaparser_javaparser_symbol_solver_core
+# gazelle:resolve java com.github.javaparser.utils @contrib_rules_jvm_deps//:com_github_javaparser_javaparser_core
+# gazelle:resolve java com.google.common.annotations @contrib_rules_jvm_deps//:com_google_guava_guava
+# gazelle:resolve java com.google.common.collect @contrib_rules_jvm_deps//:com_google_guava_guava
+# gazelle:resolve java com.google.gson @contrib_rules_jvm_deps//:com_google_code_gson_gson
+# gazelle:resolve java io.grpc @contrib_rules_jvm_deps//:io_grpc_grpc_api
+# gazelle:resolve java io.grpc.protobuf.services @contrib_rules_jvm_deps//:io_grpc_grpc_services
+# gazelle:resolve java io.grpc.stub @contrib_rules_jvm_deps//:io_grpc_grpc_stub
+# gazelle:resolve java javax.annotation @contrib_rules_jvm_deps//:com_google_code_findbugs_jsr305
+# gazelle:resolve java org.apache.commons.cli @contrib_rules_jvm_deps//:commons_cli_commons_cli
+# gazelle:resolve java org.junit.jupiter.api @maven//:org_junit_jupiter_junit_jupiter_api
+# gazelle:resolve java org.slf4j @contrib_rules_jvm_deps//:org_slf4j_slf4j_api
 gazelle(
     name = "gazelle",
     gazelle = ":gazelle_bin",
+    visibility = ["//visibility:private"],
+)
+
+gazelle_binary(
+    name = "gazelle_bin",
+    languages = DEFAULT_LANGUAGES + [
+        "@contrib_rules_jvm//java/gazelle",
+    ],
+)
+
+gazelle(
+    name = "gazelle_go",
 )
