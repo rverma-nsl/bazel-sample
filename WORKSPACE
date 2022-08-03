@@ -128,9 +128,9 @@ http_archive(
 
 register_toolchains("@build_stack_rules_proto//toolchain:prebuilt")
 
-load("@build_stack_rules_proto//:go_deps.bzl", "go_deps")
+load("@build_stack_rules_proto//:go_deps.bzl", "gazelle_protobuf_extension_go_deps")
 
-go_deps()
+gazelle_protobuf_extension_go_deps()
 
 #-----------------------------------------------------------------------------
 # JVM Contrib Rules
