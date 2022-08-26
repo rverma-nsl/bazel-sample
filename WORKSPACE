@@ -89,9 +89,9 @@ rules_proto_toolchains()
 #-----------------------------------------------------------------------------
 http_archive(
     name = "io_grpc_grpc_java",
-    sha256 = "88b12b2b4e0beb849eddde98d5373f2f932513229dbf9ec86cc8e4912fc75e79",
-    strip_prefix = "grpc-java-1.48.1",
-    urls = ["https://github.com/grpc/grpc-java/archive/v1.48.1.tar.gz"],
+    sha256 = "fd5f319252eac66920391ceb79b94611cac74de8f1ff7ef51391ee859a2243ea",
+    strip_prefix = "grpc-java-1.49.0",
+    urls = ["https://github.com/grpc/grpc-java/archive/v1.49.0.tar.gz"],
 )
 
 load("@io_grpc_grpc_java//:repositories.bzl", "IO_GRPC_GRPC_JAVA_ARTIFACTS", "IO_GRPC_GRPC_JAVA_OVERRIDE_TARGETS", "grpc_java_repositories")
