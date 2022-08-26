@@ -137,9 +137,9 @@ gazelle_protobuf_extension_go_deps()
 #-----------------------------------------------------------------------------
 http_archive(
     name = "contrib_rules_jvm",
-    sha256 = "310ddfdb224a308a6ca14383c589e03395a789474e5d47a81b63ba96470c07cc",
-    strip_prefix = "rules_jvm-cf264660d763e336ecc0772bdbf11fb0eaecc1fd",
-    url = "https://github.com/bazel-contrib/rules_jvm/archive/cf264660d763e336ecc0772bdbf11fb0eaecc1fd.zip",
+    sha256 = "c15e2208094a3c2de41180c7f7612328c6720758c7c3e8bd8ead448f4048689c",
+    strip_prefix = "rules_jvm-9c590479bd2cf1afc2e51e5b5b7a1eb1212c2ab5",
+    url = "https://github.com/bazel-contrib/rules_jvm/archive/9c590479bd2cf1afc2e51e5b5b7a1eb1212c2ab5.zip",
 )
 
 load("@contrib_rules_jvm//:repositories.bzl", "contrib_rules_jvm_deps", "contrib_rules_jvm_gazelle_deps")
