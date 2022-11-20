@@ -41,10 +41,10 @@ gazelle_dependencies()
 #-----------------------------------------------------------------------------
 http_archive(
     name = "rules_java",
-    sha256 = "d974a2d6e1a534856d1b60ad6a15e57f3970d8596fbb0bb17b9ee26ca209332a",
+    sha256 = "c73336802d0b4882e40770666ad055212df4ea62cfa6edf9cb0f9d29828a0934",
     urls = [
-        "https://mirror.bazel.build/github.com/bazelbuild/rules_java/releases/download/5.1.0/rules_java-5.1.0.tar.gz",
-        "https://github.com/bazelbuild/rules_java/releases/download/5.1.0/rules_java-5.1.0.tar.gz",
+        "https://mirror.bazel.build/github.com/bazelbuild/rules_java/releases/download/5.3.5/rules_java-5.3.5.tar.gz",
+        "https://github.com/bazelbuild/rules_java/releases/download/5.3.5/rules_java-5.3.5.tar.gz",
     ],
 )
 
